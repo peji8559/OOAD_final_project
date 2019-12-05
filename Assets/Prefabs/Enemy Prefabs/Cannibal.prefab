@@ -546,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d17c4439df8945d7a62fe30cb77bf46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 50
   is_Player: 0
   is_Boar: 0
   is_Cannibal: 1
