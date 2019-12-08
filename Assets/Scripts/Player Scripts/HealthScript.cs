@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour {
 
@@ -100,10 +101,12 @@ public class HealthScript : MonoBehaviour {
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerAttack>().enabled = false;
             GetComponent<WeaponManager>().GetCurrentSelectedWeapon().gameObject.SetActive(false);
-
-            SceneManager.LoadScene(0);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            // int score = GetComponent<ScoreScript>().getScore();
+            // Debug.Log(score);
+            // PlayerPrefs.GetString("CurrentScore");
+            SceneManager.LoadScene(2);
 
         }
 
@@ -131,6 +134,7 @@ public class HealthScript : MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
         enemyAudio.Play_DeadSound();
     }
+
 
 } // class
 

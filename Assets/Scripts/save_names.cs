@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class save_names : MonoBehaviour
 {
     public InputField inputText;
+    string username;
     string tutorialText;
     void Start(){
     	tutorialText=PlayerPrefs.GetString("tutorialTextKeyName");
