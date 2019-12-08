@@ -11,7 +11,7 @@ public class HealthScript : MonoBehaviour {
 
     public float health = 100f;
 
-    public bool is_Player, is_Boar, is_Cannibal;
+    public bool is_Player, is_Cannibal;
 
     private bool is_Dead;
 
@@ -21,7 +21,7 @@ public class HealthScript : MonoBehaviour {
 
 	void Awake () {
 	    
-        if(is_Boar || is_Cannibal) {
+        if(is_Cannibal) {
             enemy_Anim = GetComponent<EnemyAnimator>();
             enemy_Controller = GetComponent<EnemyController>();
             navAgent = GetComponent<NavMeshAgent>();
@@ -49,7 +49,7 @@ public class HealthScript : MonoBehaviour {
             player_Stats.Display_HealthStats(health);
         }
 
-        if(is_Boar || is_Cannibal) {
+        if(is_Cannibal) {
             if(enemy_Controller.Enemy_State == EnemyState.PATROL) {
                 enemy_Controller.chase_Distance = 50f;
             }
@@ -80,20 +80,6 @@ public class HealthScript : MonoBehaviour {
 
             // EnemyManager spawn more enemies
             EnemyManager.instance.EnemyDied(true);
-        }
-
-        if(is_Boar) {
-
-            navAgent.velocity = Vector3.zero;
-            navAgent.isStopped = true;
-            enemy_Controller.enabled = false;
-
-            enemy_Anim.Dead();
-
-            StartCoroutine(DeadSound());
-
-            // EnemyManager spawn more enemies
-            EnemyManager.instance.EnemyDied(false);
         }
 
         if(is_Player) {
