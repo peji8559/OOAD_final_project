@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class HealthScript : MonoBehaviour {
 
@@ -80,6 +81,9 @@ public class HealthScript : MonoBehaviour {
 
             // EnemyManager spawn more enemies
             EnemyManager.instance.EnemyDied(true);
+
+            //GetComponent<ScoreScript>().increaseScoreForCannibal();
+        
         }
 
         if(is_Player) {
@@ -96,6 +100,10 @@ public class HealthScript : MonoBehaviour {
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerAttack>().enabled = false;
             GetComponent<WeaponManager>().GetCurrentSelectedWeapon().gameObject.SetActive(false);
+
+            SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
         }
 
