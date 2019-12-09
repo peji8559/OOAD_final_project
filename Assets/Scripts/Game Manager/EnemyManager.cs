@@ -18,6 +18,8 @@ public class EnemyManager : MonoBehaviour {
 
     public float wait_Before_Spawn_Enemies_Time = 10f;
 
+    private float timer;
+
     // Use this for initialization
     void Awake () {
         MakeInstance();
@@ -35,6 +37,17 @@ public class EnemyManager : MonoBehaviour {
         if(instance == null) {
             instance = this;
         }
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 15)
+        {
+            cannibal_Enemy_Count += 5;
+            timer = 0;
+        }
+
     }
 
     void SpawnEnemies() {
