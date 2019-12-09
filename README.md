@@ -4,7 +4,7 @@ To open the game on windows, we have provided the "FPS Survival Game.exe" file. 
 
 The scripts which are documented in our UML diagram are located in /OOAD_whole_final_project/Assets/Scripts. Each file has a .meta version which unity creates. To view the code click the version that ends in .cs
 
-##Build Instructions
+## Build Instructions
 
 1. Install the most recent version of Unity Hub: https://unity3d.com/get-unity/download
 2. Clone our repository to wherever is convinient on your local machine.
